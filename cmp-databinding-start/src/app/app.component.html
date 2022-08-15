@@ -3,7 +3,9 @@
   <hr>
   <div class="row">
     <div class="col-xs-12">
-      <app-server-element *ngFor="let serverElements of serverElements"></app-server-element>
+      <app-server-element 
+        *ngFor="let serverElements of serverElements"
+        [element]="serverElements"></app-server-element>
     </div>
   </div>
 </div>
