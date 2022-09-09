@@ -1,0 +1,61 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <!--
+          Create a Form with the following Controls and Validators
+          1) Project Name (should not be empty)
+          2) Mail (should not be a empty and a valid email)
+          3) Project Status Dropdown, with three values: 'Stable', 'Critical', 'Finished'
+          4) Submit Button
+
+          Add your own Validator which doesn't allow "Test" as a Project Name
+
+          Also implement that Validator as an async Validator (replace the other one)
+
+          Upon submitting the form, simply print the value to the console
+
+          다음 컨트롤 및 유효성 검사기를 사용하여 양식 만들기
+          1) 프로젝트 이름(비워둘 수 없음)
+          2) 메일(비어 있고 유효한 이메일이 아니어야 함)
+          3) '안정적', '중요', '완료'의 세 가지 값이 있는 프로젝트 상태 드롭다운
+          4) 제출 버튼
+
+          프로젝트 이름으로 "테스트"를 허용하지 않는 고유한 유효성 검사기를 추가하십시오.
+
+          또한 해당 Validator를 비동기 Validator로 구현합니다(다른 하나 교체).
+
+          양식을 제출할 때 콘솔에 값을 인쇄하기만 하면 됩니다.
+      -->
+      <form [formGroup]="projectForm" (ngSubmit)="onSaveProject()">
+        <div class="form-group">
+          <label for="name">Project Name</label>
+          <input
+            type="text"
+            id="name"
+            formControlName="projectName"
+            class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="email">Mail</label>
+          <input
+            type="email"
+            id="email"
+            formControlName="email"
+            class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="status">Projectstatus</label>
+          <select
+            id="status"
+            formControlName="projectStatus"
+            class="form-control">
+            <option value="stable">Stable</option>
+            <option value="critical">Critical</option>
+            <option value="finished">Finished</option>
+          </select>
+        </div>
+        <button class="btn btn-primary" type="submit">Create Project</button>
+      </form>
+    </div>
+  </div>
+</div>
