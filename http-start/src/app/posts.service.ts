@@ -36,4 +36,8 @@ export class PostsService{
                 })
             );
     }
+
+    deletePosts(){
+        return this.http.delete('https://http-start-21c7e-default-rtdb.firebaseio.com/posts.json');
+    }
 }
