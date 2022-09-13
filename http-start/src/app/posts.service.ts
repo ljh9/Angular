@@ -22,19 +22,18 @@ export class PostsService{
     }
 
     fetchPosts(){
-        this.http
+        return this.http
             .get<{ [key: string]: Post }>('https://http-start-21c7e-default-rtdb.firebaseio.com/posts.json')
             .pipe(
-            map(responseData => {
-            const postsArray: Post[] = [];
-            for (const key in responseData) {
-                if (responseData.hasOwnProperty(key)){
-                postsArray.push({...responseData[key], id: key})
-                }
-            }
-            return postsArray;
-            }))
-        .subscribe(posts => {
-        });
+                map(responseData => {
+                    const postsArray: Post[] = [];
+                    for (const key in responseData) {
+                        if (responseData.hasOwnProperty(key)){
+                        postsArray.push({...responseData[key], id: key})
+                        }
+                    }
+                    return postsArray;
+                })
+            );
     }
 }
