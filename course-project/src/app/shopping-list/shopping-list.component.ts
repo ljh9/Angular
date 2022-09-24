@@ -12,13 +12,13 @@ import { ShoppingListService } from './shopping-list.service';
 })
 export class ShoppingListComponent implements OnInit, OnDestroy {
   // ingredients: Ingredient[];
-  ingredients: Observable<{ingredients: Ingredient[] }>;
+  ingredients: Observable<{ingredients: Ingredient[]}>;
   private subscription: Subscription;
 
   constructor(
     private slService: ShoppingListService, 
     private loggingService: LoggingService, 
-    private store: Store<{shoppingList: {ingredients: Ingredient[]}}>) { }
+    private store: Store<{shoppingList: {ingredients: Ingredient[]}}>) {}
 
   ngOnInit(): void {
     this.ingredients = this.store.select('shoppingList');
