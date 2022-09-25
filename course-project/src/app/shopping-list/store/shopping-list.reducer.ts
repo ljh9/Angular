@@ -8,10 +8,6 @@ export interface State {
     editedIngredientIndex: number; 
 }
 
-export interface AppState {
-    shoppingList: State;
-}
-
 const initialState: State = {
     ingredients: [
         new Ingredient('Apples', 5),
@@ -66,8 +62,8 @@ export function shoppingListReducer(state: State = initialState, action: Shoppin
         case ShoppingListActions.STOP_EDIT: 
             return {
                 ...state, 
-                editedIngredientIndex: null, 
-                editedIngredient: -1
+                editedIngredient: null, 
+                editedIngredientIndex: -1
             };
         
         default: 
