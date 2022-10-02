@@ -11,15 +11,23 @@ import { Component } from '@angular/core';
         transform: 'translateX(0)'
       })), 
       state('highlighted', style({
-        backgroundColor: 'blue', 
+        'background-color': 'blue', 
         transform: 'translateX(100px)'
       }))
     ])
   ]
 })
 export class AppComponent {
-  state = 'naormal';
+  state = 'normal';
   list = ['Milk', 'Sugar', 'Bread'];
+
+  onAnimate() {
+    this.state == 'normal' ? this.state = 'highlighted' : this.state ='normal';
+  }
+
+  onShrink() {
+    
+  }
 
     onAdd(item) {
       this.list.push(item);
