@@ -64,4 +64,16 @@ describe('Component: User', () => {
       expect(app.data).toBe('Data');
     });
   }));
+
+  it('should fetch data successfully if called asynchronously', fakeAsync(() => {
+    let fixture = TestBed.createComponent(UserComponent);
+    let app = fixture.debugElement.componentInstance;
+    let dataService = fixture.debugElement.injector.get(DataService);
+    let spy = spyOn(dataService, 'getDetails')
+      .and.returnValue(Promise.resolve('Data'));
+    fixture.detectChanges();
+    tick();
+    expect(app.data).toBe('Data');
+
+  }));
 });
