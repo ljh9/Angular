@@ -70,3 +70,31 @@ const stringArray = insertAtBeginning(['a', 'b', 'c'], 'd');
 
 // updatedArray[0].split('');
 // stringArray[0].split('');
+
+class Student {
+  // firstName: string;
+  // lastName: string;
+  // age: number;
+  // private courses: string[];
+
+  constructor(
+    public firstName: string,
+    public lastName: string,
+    public age: number,
+    private courses: string[]
+  ) {}
+
+  enrol(courseName: string) {
+    this.courses.push(courseName);
+  }
+
+  listCourses() {
+    return this.courses.slice();
+  }
+}
+
+const student = new Student('Max', 'Schwarz', 32, ['Angular']);
+student.enrol('React');
+// student.listCourses(); => Angular, React
+
+// student.courses => Angular, React
